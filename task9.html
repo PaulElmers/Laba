@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лайк</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .like-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="like-button" onclick="increaseLikes()" id="likeButton">Like 0</button>
+
+    <script>
+        let likeCount = 0;
+
+        function increaseLikes() {
+            likeCount++;
+            document.getElementById('likeButton').textContent = `Like ${likeCount}`;
+        }
+    </script>
+</body>
+</html>

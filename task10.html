@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Випадаюче меню</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .menu {
+            background-color: #333;
+            padding: 10px;
+        }
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .menu ul li {
+            margin-right: 20px;
+            position: relative;
+        }
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .submenu.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li>
+                <a href="#">Пункт 1</a>
+                <div class="submenu" id="submenu1">
+                    <ul>
+                        <li><a href="#">Підпункт 1.1</a></li>
+                        <li><a href="#">Підпункт 1.2</a></li>
+                        <li><a href="#">Підпункт 1.3</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#">Пункт 2</a>
+                <div class="submenu" id="submenu2">
+                    <ul>
+                        <li><a href="#">Підпункт 2.1</a></li>
+                        <li><a href="#">Підпункт 2.2</a></li>
+                        <li><a href="#">Підпункт 2.3</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#">Пункт 3</a>
+                <div class="submenu" id="submenu3">
+                    <ul>
+                        <li><a href="#">Підпункт 3.1</a></li>
+                        <li><a href="#">Підпункт 3.2</a></li>
+                        <li><a href="#">Підпункт 3.3</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        document.querySelectorAll('.menu ul li').forEach(item => {
+            item.addEventListener('click', function() {
+                const submenuId = this.querySelector('.submenu').id;
+                const submenu = document.getElementById(submenuId);
+                submenu.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

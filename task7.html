@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблиця з підсвічуванням клітинок</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+        td, th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table id="myTable">
+        <tr>
+            <th>Заголовок 1</th>
+            <th>Заголовок 2</th>
+            <th>Заголовок 3</th>
+        </tr>
+        <tr>
+            <td>Клітинка 1</td>
+            <td>Клітинка 2</td>
+            <td>Клітинка 3</td>
+        </tr>
+        <tr>
+            <td>Клітинка 4</td>
+            <td>Клітинка 5</td>
+            <td>Клітинка 6</td>
+        </tr>
+        <tr>
+            <td>Клітинка 7</td>
+            <td>Клітинка 8</td>
+            <td>Клітинка 9</td>
+        </tr>
+    </table>
+
+    <script>
+        document.querySelectorAll('td').forEach(cell => {
+            cell.addEventListener('mouseover', function() {
+                cell.style.backgroundColor = '#d0e6f6';
+            });
+            cell.addEventListener('mouseout', function() {
+                cell.style.backgroundColor = '';
+            });
+        });
+    </script>
+</body>
+</html>

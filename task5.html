@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список новин</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .news-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .news-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .delete-button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .delete-button:hover {
+            background-color: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="news-container">
+        <div class="news-item">
+            <span>Новина 1: Це перша новина</span>
+            <button class="delete-button" onclick="deleteNews(this)">Видалити</button>
+        </div>
+        <div class="news-item">
+            <span>Новина 2: Це друга новина</span>
+            <button class="delete-button" onclick="deleteNews(this)">Видалити</button>
+        </div>
+        <div class="news-item">
+            <span>Новина 3: Це третя новина</span>
+            <button class="delete-button" onclick="deleteNews(this)">Видалити</button>
+        </div>
+    </div>
+
+    <script>
+        function deleteNews(button) {
+            const newsItem = button.parentElement;
+            newsItem.remove();
+        }
+    </script>
+</body>
+</html>

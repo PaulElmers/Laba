@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сторінка з вкладками</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .tabs {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            background-color: #333;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .tab {
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .tab.active {
+            background-color: #007BFF;
+        }
+        .tab-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin-left: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('tab1')">Вкладка 1</div>
+        <div class="tab" onclick="showTab('tab2')">Вкладка 2</div>
+        <div class="tab" onclick="showTab('tab3')">Вкладка 3</div>
+    </div>
+
+    <div id="tab1" class="tab-content active">
+        <h1>Вміст вкладки 1</h1>
+        <p>Це вміст першої вкладки.</p>
+    </div>
+    <div id="tab2" class="tab-content">
+        <h1>Вміст вкладки 2</h1>
+        <p>Це вміст другої вкладки.</p>
+    </div>
+    <div id="tab3" class="tab-content">
+        <h1>Вміст вкладки 3</h1>
+        <p>Це вміст третьої вкладки.</p>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            const activeTab = document.querySelector(`.tab[onclick="showTab('${tabId}')"]`);
+            activeTab.classList.add('active');
+
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            const activeContent = document.getElementById(tabId);
+            activeContent.classList.add('active');
+        }
+    </script>
+</body>
+</html>
